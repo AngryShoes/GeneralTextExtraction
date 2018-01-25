@@ -1,0 +1,48 @@
+﻿<Controls:MetroWindow
+        x:Class="GeneralTextExtraction.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GeneralTextExtraction"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="General Text Extraction" ResizeMode="CanResize"  Height="450" Width="850">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBox Name="tbx_filePath" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top"
+                 Width="300" HorizontalAlignment="Left" Margin="23,14,0,0" FontStyle="Italic">
+            <TextBox.Resources>
+                <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Left">
+                    <VisualBrush.Visual>
+                        <TextBlock FontStyle="Italic" Text="please select file path here..."></TextBlock>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </TextBox.Resources>
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <Button Name="btn_browse" Grid.Row="0" Grid.Column="1" Width="70" Background="Beige"
+                VerticalAlignment="Bottom" Margin="50,0,30,7" RenderTransformOrigin="0.72,0.727"
+                Click="btn_browse_Click">Browse</Button>
+        <Image Grid.Row="1" Grid.Column="0" Margin="10" Name="imagePresentation" ></Image>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="10" Name="tbx_presentation"></TextBox>
+    </Grid>
+</Controls:MetroWindow>
